@@ -115,7 +115,7 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
                 <div className="space-y-3 sm:space-y-4 font-sans text-thai-charcoal leading-relaxed text-sm sm:text-base">
                   <p><span className="font-bold text-royal-red">รสชาติ:</span> {result.taste}</p>
                   <p><span className="font-bold text-royal-red">สมุนไพรเด่น:</span> {result.herbs}</p>
-                  <p><span className="font-bold text-royal-red">สรรพคุณ:</span> {result.purpose}</p>
+                  <p><span className="font-bold text-royal-red">จุดเด่น:</span> {result.purpose}</p>
                 </div>
               </section>
 
