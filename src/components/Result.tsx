@@ -94,7 +94,7 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
                 <div className="space-y-4 font-sans text-thai-charcoal leading-relaxed">
                   <p><span className="font-bold text-royal-red">รสชาติ:</span> {result.taste}</p>
                   <p><span className="font-bold text-royal-red">สมุนไพรเด่น:</span> {result.herbs}</p>
-                  <p><span className="font-bold text-royal-red">แก้อะไร (เชิงครัวไทย):</span> {result.purpose}</p>
+                  <p><span className="font-bold text-royal-red">สรรพคุณ (เชิงครัวไทย):</span> {result.purpose}</p>
                 </div>
               </section>
 
@@ -115,7 +115,7 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
               <section>
                 <div className="flex items-center gap-2 text-royal-red font-bold mb-3 font-sans">
                   <ShieldAlert className="w-5 h-5" />
-                  <h4>ท้าทายเมื่อเจอ</h4>
+                  <h4>คู่กัดกับ</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {result.challenging.map((item, i) => (

@@ -128,7 +128,7 @@ export const questions: Question[] = [
   },
   {
     id: 10,
-    text: "(Tie-break) ได้วันว่าง 1 วัน คุณจะใช้แบบไหน “ตามสัญชาตญาณ”?",
+    text: "ได้วันว่าง 1 วัน คุณจะใช้แบบไหน “ตามสัญชาตญาณ”?",
     dimension: 'ALL',
     options: [
       { text: "วางแผนชัด อยู่เงียบๆ ทำสิ่งเดิมที่สบายใจ", value: { left: 2, right: 0 } },
