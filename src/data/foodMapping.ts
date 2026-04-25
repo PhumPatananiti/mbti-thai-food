@@ -1,122 +1,207 @@
 export interface FoodResult {
   name: string;
-  mbti: string;
+  personality: string;
   description: string;
-  traits: string[];
+  taste: string;
+  herbs: string;
+  ingredients: string;
+  purpose: string;
+  compatible: string[];
+  challenging: string[];
   image: string;
 }
 
 export const foodMapping: Record<string, FoodResult> = {
-  "INTJ": {
-    name: "Massaman Curry",
-    mbti: "Architect",
-    description: "Complex, deep, and highly strategic. Just like Massaman, you are layered with many flavors and take time to reach your peak potential.",
-    traits: ["Strategic", "Complex", "Independent"],
+  "CRNK": {
+    name: "ข้าวแช่",
+    personality: "เนี้ยบ สุภาพ ใจเย็น ละเมียด รักความเป็นระเบียบ",
+    description: "เย็น หอม ละมุน (น้ำ) + เค็มหวานมัน (เครื่องเคียง). เป็นเมนูโชว์ความประณีตตั้งแต่น้ำจนถึงการจัดสำรับ",
+    taste: "เย็น หอม ละมุน (น้ำ) + เค็มหวานมัน (เครื่องเคียง)",
+    herbs: "น้ำลอยดอกมะลิ/กระดังงา, อบควันเทียน",
+    ingredients: "ข้าวหอมมะลิ, น้ำอบ; เครื่องเคียงเช่น ลูกกะปิทอด พริกหยวกสอดไส้ ไชโป๊หวาน หมูฝอย",
+    purpose: "ช่วย “คลายร้อน/รีเฟรช” จากการกินเย็นและกลิ่นหอม",
+    compatible: ["หมี่กรอบชาววัง", "ข้าวตังหน้าตั้ง", "แกงมัสมั่นชาววัง"],
+    challenging: ["ยำทวาย", "น้ำพริกลงเรือ"],
     image: "https://images.unsplash.com/photo-1548946522-4a313e8972a4?auto=format&fit=crop&q=80&w=800"
   },
-  "INTP": {
-    name: "Tom Yum Goong",
-    mbti: "Logician",
-    description: "Dynamic and explosive. You possess a sharp mind that balances sour, spicy, and salty elements in perfect logical harmony.",
-    traits: ["Innovative", "Analytical", "Precise"],
-    image: "https://images.unsplash.com/photo-1562607394-580c336ad15b?auto=format&fit=crop&q=80&w=800"
+  "CRNA": {
+    name: "แกงมัสมั่นชาววัง",
+    personality: "อบอุ่น ลุ่มลึก ใจเย็นแต่จริงจัง กลมกล่อมมีชั้นเชิง",
+    description: "หวานเค็มมัน นัว “เครื่องเทศลึก”. เครื่องเทศโทนอุ่นมักถูกมองว่าช่วยให้ท้องอุ่น/ขับลม",
+    taste: "หวานเค็มมัน นัว “เครื่องเทศลึก”",
+    herbs: "อบเชย กานพลู ลูกกระวาน ยี่หร่า ลูกผักชี",
+    ingredients: "กะทิ, เนื้อ/ไก่, ถั่วลิสง, มันฝรั่ง, น้ำตาลปี๊บ/มะขามเปียก",
+    purpose: "ช่วยตัดเลี่ยนให้รสไม่หนักเกิน และช่วยขับลม",
+    compatible: ["ข้าวแช่", "หรุ่ม", "ข้าวตังหน้าตั้ง"],
+    challenging: ["ยำทวาย", "ม้าห้อ"],
+    image: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&q=80&w=800"
   },
-  "ENTJ": {
-    name: "Pad Thai",
-    mbti: "Commander",
-    description: "The global leader of Thai cuisine. Efficient, popular, and capable of taking charge of any table with your strong presence.",
-    traits: ["Leader", "Efficient", "Strong-willed"],
+  "CREK": {
+    name: "หมี่กรอบชาววัง",
+    personality: "เข้าสังคมเก่ง บาลานซ์ดี ดูดีแบบพอดี",
+    description: "กรอบฟู + เปรี้ยวหวานเค็มสมดุล. ความเปรี้ยว + กลิ่น citrus ช่วยตัดเลี่ยนและเปิดรส",
+    taste: "กรอบฟู + เปรี้ยวหวานเค็มสมดุล",
+    herbs: "ผิวส้มซ่า/มะกรูด, หอมเจียว, กระเทียมเจียว",
+    ingredients: "เส้นหมี่ทอด, น้ำมะขามเปียก, น้ำตาลปี๊บ, น้ำปลา, กุ้งแห้ง, ถั่วงอก กุยช่าย",
+    purpose: "กลิ่น Citrus ช่วยตัดเลี่ยนและ “เปิดรส”",
+    compatible: ["ข้าวแช่", "ล่าเตียง", "น้ำพริกลงเรือ"],
+    challenging: ["แกงรัญจวน", "หรุ่ม"],
     image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=800"
   },
-  "ENTP": {
-    name: "Pineapple Fried Rice",
-    mbti: "Debater",
-    description: "Unconventional and colorful. You love mixing different ideas (and ingredients) to create something unexpected and exciting.",
-    traits: ["Creative", "Curious", "Spontaneous"],
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800"
-  },
-  "INFJ": {
-    name: "Mango Sticky Rice",
-    mbti: "Advocate",
-    description: "A rare and sweet soul. You offer a unique depth that brings comfort and sweetness to everyone around you.",
-    traits: ["Insightful", "Sweet", "Idealistic"],
-    image: "https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&q=80&w=800"
-  },
-  "INFP": {
-    name: "Green Curry",
-    mbti: "Mediator",
-    description: "Soft and harmonious. You have a gentle appearance but carry a complex depth and a spicy spark when it matters.",
-    traits: ["Harmonious", "Empathetic", "Creative"],
-    image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800"
-  },
-  "ENFJ": {
-    name: "Tom Kha Gai",
-    mbti: "Protagonist",
-    description: "Warm and nurturing. Like the creamy coconut broth, you provide comfort and bring people together with your charisma.",
-    traits: ["Charismatic", "Nurturing", "Inspiring"],
-    image: "https://images.unsplash.com/photo-1637500923483-500e84ec1e19?auto=format&fit=crop&q=80&w=800"
-  },
-  "ENFP": {
-    name: "Nam Tok Moo",
-    mbti: "Campaigner",
-    description: "Vibrant and zesty. You are full of life and spontaneity, always bringing a burst of energy and flavor to the party.",
-    traits: ["Enthusiastic", "Social", "Free-spirited"],
-    image: "https://images.unsplash.com/photo-1548946522-4a313e8972a4?auto=format&fit=crop&q=80&w=800" // Placeholder
-  },
-  "ISTJ": {
-    name: "Pad Kra Pao",
-    mbti: "Logistician",
-    description: "Reliable and direct. The foundation of Thai street food. You are dependable, efficient, and get the job done without fuss.",
-    traits: ["Dependable", "Practical", "Organized"],
-    image: "https://images.unsplash.com/photo-1617093209121-687258414902?auto=format&fit=crop&q=80&w=800"
-  },
-  "ISFJ": {
-    name: "Khao Man Gai",
-    mbti: "Defender",
-    description: "Pure comfort. You are the silent supporter who ensures everyone is well-fed and cared for with your steady presence.",
-    traits: ["Loyal", "Kind", "Observant"],
-    image: "https://images.unsplash.com/photo-1632778149125-965d2954e280?auto=format&fit=crop&q=80&w=800"
-  },
-  "ESTJ": {
-    name: "Moo Ping",
-    mbti: "Executive",
-    description: "Disciplined and efficient. Like the perfect grilled skewer, you are straightforward, traditional, and highly reliable.",
-    traits: ["Direct", "Efficient", "Traditional"],
+  "CREA": {
+    name: "ล่าเตียง",
+    personality: "ครีเอทีฟ พิถีพิถัน รสนิยมดี ชอบทำให้คนว้าวแบบเนียนๆ",
+    description: "ไข่นุ่มหอม + ไส้หวานเค็มกลม. สามเกลอช่วยดับคาวและดึงกลิ่นเนื้อให้หอมละมุน",
+    taste: "ไข่นุ่มหอม + ไส้หวานเค็มกลม",
+    herbs: "รากผักชี กระเทียม พริกไทย (สามเกลอ)",
+    ingredients: "ไข่ตาข่าย, หมู/กุ้งสับ, ถั่วลิสง, เครื่องปรุงหวานเค็ม",
+    purpose: "“สามเกลอ” ช่วยดับคาวและดึงกลิ่นเนื้อให้หอมละมุน",
+    compatible: ["หมี่กรอบชาววัง", "ม้าห้อ", "ข้าวแช่"],
+    challenging: ["แกงรัญจวน", "ข้าวตังหน้าตั้ง"],
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"
   },
-  "ESFJ": {
-    name: "Pad See Ew",
-    mbti: "Consul",
-    description: "A classic crowd-pleaser. You value tradition and harmony, making sure everyone at the table feels included and satisfied.",
-    traits: ["Outgoing", "Harmonious", "Traditional"],
-    image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=800"
+  "CSNK": {
+    name: "ข้าวตังหน้าตั้ง",
+    personality: "อบอุ่น น่าไว้ใจ คลาสสิก แต่มีความกรุบกรอบในใจ",
+    description: "กรอบ (ข้าวตัง) + นัวมันเค็มหวาน (หน้าตั้งกะทิ). หอม/รากผักชีช่วยยกความหอมให้กะทิไม่เลี่ยนทื่อ",
+    taste: "กรอบ (ข้าวตัง) + นัวมันเค็มหวาน (หน้าตั้งกะทิ)",
+    herbs: "หอมแดง รากผักชี พริกไทย",
+    ingredients: "ข้าวตังทอด, กะทิ, หมูสับ/กุ้ง, ถั่วลิสงคั่ว",
+    purpose: "สอนเรื่อง texture contrast ได้ชัด: กรอบ vs ครีม",
+    compatible: ["ข้าวแช่", "แกงมัสมั่นชาววัง", "น้ำพริกลงเรือ"],
+    challenging: ["ยำทวาย", "ม้าห้อ"],
+    image: "https://images.unsplash.com/photo-1617093209121-687258414902?auto=format&fit=crop&q=80&w=800"
   },
-  "ISTP": {
-    name: "Laab Moo",
-    mbti: "Virtuoso",
-    description: "Sharp and resourceful. You have a keen sense for the right balance of spices and can handle any situation with cool precision.",
-    traits: ["Practical", "Resourceful", "Bold"],
-    image: "https://images.unsplash.com/photo-1562607394-580c336ad15b?auto=format&fit=crop&q=80&w=800" // Placeholder
+  "CSNA": {
+    name: "แกงรัญจวน",
+    personality: "สุขุม แหลมคม เรียบแต่ลึก แก้ปัญหาเฉพาะหน้าอย่างมีศิลป์",
+    description: "น้ำใสแต่รสคม เปรี้ยวเค็มหอมสมุนไพร โหระพาชัด. ชุดสมุนไพรช่วยดับคาวได้ดีมาก",
+    taste: "น้ำใสแต่รสคม เปรี้ยวเค็มหอมสมุนไพร โหระพาชัด",
+    herbs: "ตะไคร้ ใบมะกรูด หอมแดง โหระพา + น้ำเปรี้ยว",
+    ingredients: "กะปิ, เนื้อ, สมุนไพรต้ม, น้ำเปรี้ยว",
+    purpose: "แปลงของเหลือ/ของค้างสำรับให้เป็นเมนูใหม่อย่างมีคุณค่า",
+    compatible: ["หรุ่ม", "ข้าวแช่", "แกงมัสมั่นชาววัง"],
+    challenging: ["ยำทวาย", "น้ำพริกลงเรือ"],
+    image: "https://images.unsplash.com/photo-1637500923483-500e84ec1e19?auto=format&fit=crop&q=80&w=800"
   },
-  "ISFP": {
-    name: "Khanom Chin Nam Ya",
-    mbti: "Adventurer",
-    description: "Artistic and colorful. You appreciate the sensory experience of life and bring a unique aesthetic to everything you do.",
-    traits: ["Artistic", "Sensitive", "Open-minded"],
-    image: "https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&q=80&w=800" // Placeholder
+  "CSEK": {
+    name: "น้ำพริกลงเรือ",
+    personality: "กลมกล่อม เข้าได้กับหลายคน เก่งการ “ประสานรส/ประสานคน”",
+    description: "กลมกล่อม หวานเค็มนำ เเผ็ดตาม + ปรับรสด้วยเครื่องเคียง. มะนาว/มะขามช่วยตัดคาวกะปิให้หอมสะอาดขึ้น",
+    taste: "กลมกล่อม หวานเค็มนำ เผ็ดตาม",
+    herbs: "กะปิ, หอมแดง, กระเทียม, พริก",
+    ingredients: "กะปิ พริก หอม กระเทียม น้ำตาลปี๊บ + เครื่องเคียง (หมูหวาน ไข่เค็ม ผักสด)",
+    purpose: "ให้ผู้กิน “บาลานซ์เอง” ในหนึ่งสำรับ (เค็ม/หวาน/สด/เปรี้ยว)",
+    compatible: ["หมี่กรอบชาววัง", "ข้าวตังหน้าตั้ง", "ยำทวาย"],
+    challenging: ["ข้าวแช่", "หรุ่ม"],
+    image: "https://images.unsplash.com/photo-1632778149125-965d2954e280?auto=format&fit=crop&q=80&w=800"
   },
-  "ESTP": {
-    name: "Gai Yang",
-    mbti: "Entrepreneur",
-    description: "Bold and energetic. You are the life of the party, always ready for action and direct in your pursuit of excellence.",
-    traits: ["Bold", "Direct", "Perceptive"],
+  "CSEA": {
+    name: "ยำทวาย",
+    personality: "แอคทีฟ เปิดรับสิ่งใหม่ ชอบความหลากหลายและความคึกคัก",
+    description: "เปรี้ยวเค็มหวานเผ็ด ครบ และเครื่องหลากหลาย. ตะไคร้/ใบมะกรูด/มะนาวเด่นเรื่องดับคาวและทำให้สดชื่น",
+    taste: "เปรี้ยวเค็มหวานเผ็ด ครบ และเครื่องหลากหลาย",
+    herbs: "ตะไคร้ ใบมะกรูด หอมแดง + มะนาว",
+    ingredients: "เนื้อสัตว์ลวก/ซีฟู้ด/เห็ด/ผักหลายชนิด + น้ำยำ",
+    purpose: "รสเปรี้ยวเผ็ดช่วย “เรียกน้ำย่อย/เจริญอาหาร”",
+    compatible: ["น้ำพริกลงเรือ", "ม้าห้อ", "หมี่กรอบชาววัง"],
+    challenging: ["ข้าวแช่", "แกงมัสมั่นชาววัง"],
+    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800"
+  },
+  "IRNK": {
+    name: "หรุ่ม",
+    personality: "โฟกัสดี มาตรฐานสูง เงียบๆ แต่ฝีมือแน่น",
+    description: "นุ่มเนียน แต่ไส้แน่น หอมชัด. พริกไทย/สามเกลอช่วยลดกลิ่นคาวและทำให้รสคมขึ้น",
+    taste: "นุ่มเนียน แต่ไส้แน่น หอมชัด",
+    herbs: "รากผักชี กระเทียม พริกไทย (เข้มและชัด)",
+    ingredients: "ไข่ตาข่าย, ไส้หมู/ไก่/กุ้ง + ถั่วลิสง",
+    purpose: "สอนเรื่องมาตรฐานการผลิต: ชิ้นต้องใกล้เคียงกันทุกชิ้น",
+    compatible: ["แกงมัสมั่นชาววัง", "ข้าวแช่", "แกงรัญจวน"],
+    challenging: ["ยำทวาย", "ม้าห้อ"],
     image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&q=80&w=800"
   },
-  "ESFP": {
-    name: "Roti Sai Mai",
-    mbti: "Entertainer",
-    description: "Fun and colorful. You bring joy and sweetness to life, always ready to put on a show and share the fun with others.",
-    traits: ["Fun", "Spontaneous", "Energetic"],
-    image: "https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?auto=format&fit=crop&q=80&w=800"
+  "IRNA": {
+    name: "ล่าเตียง", // According to mapping table, IRNA also maps to ล่าเตียง
+    personality: "ครีเอทีฟ พิถีพิถัน รสนิยมดี ชอบทำให้คนว้าวแบบเนียนๆ",
+    description: "ไข่นุ่มหอม + ไส้หวานเค็มกลม. สามเกลอช่วยดับคาวและดึงกลิ่นเนื้อให้หอมละมุน",
+    taste: "ไข่นุ่มหอม + ไส้หวานเค็มกลม",
+    herbs: "รากผักชี กระเทียม พริกไทย (สามเกลอ)",
+    ingredients: "ไข่ตาข่าย, หมู/กุ้งสับ, ถั่วลิสง, เครื่องปรุงหวานเค็ม",
+    purpose: "“สามเกลอ” ช่วยดับคาวและดึงกลิ่นเนื้อให้หอมละมุน",
+    compatible: ["หมี่กรอบชาววัง", "ม้าห้อ", "ข้าวแช่"],
+    challenging: ["แกงรัญจวน", "ข้าวตังหน้าตั้ง"],
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"
+  },
+  "IREK": {
+    name: "หมี่กรอบชาววัง", // IREK maps to หมี่กรอบชาววัง
+    personality: "เข้าสังคมเก่ง บาลานซ์ดี ดูดีแบบพอดี",
+    description: "กรอบฟู + เปรี้ยวหวานเค็มสมดุล. ความเปรี้ยว + กลิ่น citrus ช่วยตัดเลี่ยนและเปิดรส",
+    taste: "กรอบฟู + เปรี้ยวหวานเค็มสมดุล",
+    herbs: "ผิวส้มซ่า/มะกรูด, หอมเจียว, กระเทียมเจียว",
+    ingredients: "เส้นหมี่ทอด, น้ำมะขามเปียก, น้ำตาลปี๊บ, น้ำปลา, กุ้งแห้ง, ถั่วงอก กุยช่าย",
+    purpose: "กลิ่น Citrus ช่วยตัดเลี่ยนและ “เปิดรส”",
+    compatible: ["ข้าวแช่", "ล่าเตียง", "น้ำพริกลงเรือ"],
+    challenging: ["แกงรัญจวน", "หรุ่ม"],
+    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=800"
+  },
+  "IREA": {
+    name: "ยำทวาย", // IREA maps to ยำทวาย
+    personality: "แอคทีฟ เปิดรับสิ่งใหม่ ชอบความหลากหลายและความคึกคัก",
+    description: "เปรี้ยวเค็มหวานเผ็ด ครบ และเครื่องหลากหลาย. ตะไคร้/ใบมะกรูด/มะนาวเด่นเรื่องดับคาวและทำให้สดชื่น",
+    taste: "เปรี้ยวเค็มหวานเผ็ด ครบ และเครื่องหลากหลาย",
+    herbs: "ตะไคร้ ใบมะกรูด หอมแดง + มะนาว",
+    ingredients: "เนื้อสัตว์ลวก/ซีฟู้ด/เห็ด/ผักหลายชนิด + น้ำยำ",
+    purpose: "รสเปรี้ยวเผ็ดช่วย “เรียกน้ำย่อย/เจริญอาหาร”",
+    compatible: ["น้ำพริกลงเรือ", "ม้าห้อ", "หมี่กรอบชาววัง"],
+    challenging: ["ข้าวแช่", "แกงมัสมั่นชาววัง"],
+    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800"
+  },
+  "ISNK": {
+    name: "ข้าวตังหน้าตั้ง", // ISNK maps to ข้าวตังหน้าตั้ง
+    personality: "อบอุ่น น่าไว้ใจ คลาสสิก แต่มีความกรุบกรอบในใจ",
+    description: "กรอบ (ข้าวตัง) + นัวมันเค็มหวาน (หน้าตั้งกะทิ). หอม/รากผักชีช่วยยกความหอมให้กะทิไม่เลี่ยนทื่อ",
+    taste: "กรอบ (ข้าวตัง) + นัวมันเค็มหวาน (หน้าตั้งกะทิ)",
+    herbs: "หอมแดง รากผักชี พริกไทย",
+    ingredients: "ข้าวตังทอด, กะทิ, หมูสับ/กุ้ง, ถั่วลิสงคั่ว",
+    purpose: "สอนเรื่อง texture contrast ได้ชัด: กรอบ vs ครีม",
+    compatible: ["ข้าวแช่", "แกงมัสมั่นชาววัง", "น้ำพริกลงเรือ"],
+    challenging: ["ยำทวาย", "ม้าห้อ"],
+    image: "https://images.unsplash.com/photo-1617093209121-687258414902?auto=format&fit=crop&q=80&w=800"
+  },
+  "ISNA": {
+    name: "แกงรัญจวน", // ISNA maps to แกงรัญจวน
+    personality: "สุขุม แหลมคม เรียบแต่ลึก แก้ปัญหาเฉพาะหน้าอย่างมีศิลป์",
+    description: "น้ำใสแต่รสคม เปรี้ยวเค็มหอมสมุนไพร โหระพาชัด. ชุดสมุนไพรช่วยดับคาวได้ดีมาก",
+    taste: "น้ำใสแต่รสคม เปรี้ยวเค็มหอมสมุนไพร โหระพาชัด",
+    herbs: "ตะไคร้ ใบมะกรูด หอมแดง โหระพา + น้ำเปรี้ยว",
+    ingredients: "กะปิ, เนื้อ, สมุนไพรต้ม, น้ำเปรี้ยว",
+    purpose: "แปลงของเหลือ/ของค้างสำรับให้เป็นเมนูใหม่อย่างมีคุณค่า",
+    compatible: ["หรุ่ม", "ข้าวแช่", "แกงมัสมั่นชาววัง"],
+    challenging: ["ยำทวาย", "น้ำพริกลงเรือ"],
+    image: "https://images.unsplash.com/photo-1637500923483-500e84ec1e19?auto=format&fit=crop&q=80&w=800"
+  },
+  "ISEK": {
+    name: "ม้าห้อ",
+    personality: "ขี้เล่น ฉลาดแพรวพราว ชอบคอนทราสต์ สนุกกับการหยอกล้อ",
+    description: "หวานเค็มมัน (ไส้) + เปรี้ยวฉ่ำกรอบ (ผลไม้). ผลไม้เปรี้ยวทำหน้าที่ตัดเลี่ยนแบบทันที",
+    taste: "หวานเค็มมัน (ไส้) + เปรี้ยวฉ่ำกรอบ (ผลไม้)",
+    herbs: "หอมแดง กระเทียม พริกไทย",
+    ingredients: "หมู/กุ้งสับผัดน้ำตาลปี๊บ ถั่วลิสง + ผลไม้เปรี้ยว (สับปะรด ส้ม)",
+    purpose: "เป็นตัวอย่าง “flavor pairing” ไทยโบราณ: หวาน-เค็ม-เปรี้ยวในคำเดียว",
+    compatible: ["ล่าเตียง", "น้ำพริกลงเรือ", "หมี่กรอบชาววัง"],
+    challenging: ["หรุ่ม", "ข้าวแช่"],
+    image: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&q=80&w=800" // Placeholder
+  },
+  "ISEA": {
+    name: "น้ำพริกลงเรือ", // ISEA maps to น้ำพริกลงเรือ
+    personality: "กลมกล่อม เข้าได้กับหลายคน เก่งการ “ประสานรส/ประสานคน”",
+    description: "กลมกล่อม หวานเค็มนำ เผ็ดตาม + ปรับรสด้วยเครื่องเคียง. มะนาว/มะขามช่วยตัดคาวกะปิให้หอมสะอาดขึ้น",
+    taste: "กลมกล่อม หวานเค็มนำ เผ็ดตาม",
+    herbs: "กะปิ, หอมแดง, กระเทียม, พริก",
+    ingredients: "กะปิ พริก หอม กระเทียม น้ำตาลปี๊บ + เครื่องเคียง (หมูหวาน ไข่เค็ม ผักสด)",
+    purpose: "ให้ผู้กิน “บาลานซ์เอง” ในหนึ่งสำรับ (เค็ม/หวาน/สด/เปรี้ยว)",
+    compatible: ["หมี่กรอบชาววัง", "ข้าวตังหน้าตั้ง", "ยำทวาย"],
+    challenging: ["ข้าวแช่", "หรุ่ม"],
+    image: "https://images.unsplash.com/photo-1632778149125-965d2954e280?auto=format&fit=crop&q=80&w=800"
   }
 };

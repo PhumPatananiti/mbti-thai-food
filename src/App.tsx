@@ -7,22 +7,30 @@ type View = 'intro' | 'quiz' | 'result';
 
 function App() {
   const [view, setView] = useState<View>('intro');
-  const [scores, setScores] = useState<Record<string, number>>({
-    EI: 0,
-    SN: 0,
-    TF: 0,
-    JP: 0
+  const [scores, setScores] = useState<Record<string, { left: number; right: number }>>({
+    CIR: { left: 0, right: 0 },
+    RS: { left: 0, right: 0 },
+    NE: { left: 0, right: 0 },
+    KA: { left: 0, right: 0 }
   });
+  const [tieBreaker, setTieBreaker] = useState(0);
 
   const handleStart = () => setView('quiz');
   
-  const handleComplete = (finalScores: Record<string, number>) => {
+  const handleComplete = (finalScores: Record<string, { left: number; right: number }>, tieBreakerIdx: number) => {
     setScores(finalScores);
+    setTieBreaker(tieBreakerIdx);
     setView('result');
   };
 
   const handleReset = () => {
-    setScores({ EI: 0, SN: 0, TF: 0, JP: 0 });
+    setScores({
+      CIR: { left: 0, right: 0 },
+      RS: { left: 0, right: 0 },
+      NE: { left: 0, right: 0 },
+      KA: { left: 0, right: 0 }
+    });
+    setTieBreaker(0);
     setView('intro');
   };
 
@@ -37,12 +45,12 @@ function App() {
       <main className="w-full flex justify-center">
         {view === 'intro' && <Intro onStart={handleStart} />}
         {view === 'quiz' && <Quiz onComplete={handleComplete} />}
-        {view === 'result' && <Result scores={scores} onReset={handleReset} />}
+        {view === 'result' && <Result scores={scores} tieBreaker={tieBreaker} onReset={handleReset} />}
       </main>
       
       {/* Footer Branding */}
-      <footer className="fixed bottom-4 text-royal-red/40 text-sm font-bold tracking-widest uppercase">
-        Thai Flavor Personality Quiz
+      <footer className="fixed bottom-4 text-royal-red/40 text-sm font-bold tracking-widest uppercase font-sans">
+        สุนทรียภาพแห่งรสชาติไทย • Royal Thai Cuisine Personality Quiz
       </footer>
     </div>
   );
