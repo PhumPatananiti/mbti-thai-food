@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Sarabun:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-royal-red: #8B0000;
+  --color-royal-gold: #D4AF37;
+  --color-royal-cream: #FDF5E6;
+  --color-thai-charcoal: #333333;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Sarabun", sans-serif;
+}
+
+:root {
+  font-family: 'Sarabun', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #333333;
+  background-color: #FDF5E6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+.silk-bg {
+  background-color: #FDF5E6;
+  background-image: url("https://www.transparenttextures.com/patterns/silk.png");
+}
+
+.thai-border {
+  border: 4px solid #D4AF37;
+  position: relative;
+}
+
+.thai-border::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid #D4AF37;
+  pointer-events: none;
+}
