@@ -43,14 +43,14 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
   const progress = ((currentIndex + 1) / questions.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl px-4 py-8">
+    <div className="w-full max-w-2xl px-2 sm:px-4 py-4 sm:py-8">
       {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="flex justify-between text-royal-red font-bold mb-2 font-sans">
+      <div className="mb-6 sm:mb-8">
+        <div className="flex justify-between text-royal-red font-bold mb-2 font-sans text-sm sm:text-base">
           <span>คำถามที่ {currentIndex + 1} จาก {questions.length}</span>
           <span>{Math.round(progress)}%</span>
         </div>
-        <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden border border-royal-gold/30">
+        <div className="w-full h-2 sm:h-3 bg-gray-200 rounded-full overflow-hidden border border-royal-gold/30">
           <motion.div 
             className="h-full bg-royal-red"
             initial={{ width: 0 }}
@@ -66,24 +66,24 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
-          className="silk-bg p-8 md:p-12 rounded-2xl shadow-xl thai-border"
+          className="silk-bg p-5 sm:p-8 md:p-12 rounded-2xl shadow-xl thai-border"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-thai-charcoal mb-8 leading-tight font-sans">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-thai-charcoal mb-6 sm:mb-8 leading-tight font-sans">
             {currentQuestion.text}
           </h2>
 
-          <div className="grid gap-3">
+          <div className="grid gap-2 sm:gap-3">
             {currentQuestion.options.map((option, idx) => (
               <button
                 key={idx}
                 onClick={() => handleAnswer(currentQuestion.dimension, option.value, idx)}
-                className="w-full p-4 text-left text-lg font-sans border-2 border-royal-gold/20 
-                           rounded-xl hover:border-royal-red hover:bg-royal-red/5 
+                className="w-full p-3 sm:p-4 text-left text-base sm:text-lg font-sans border-2 border-royal-gold/20 
+                           rounded-xl hover:border-royal-red hover:bg-royal-red/5 active:bg-royal-red/10
                            transition-all duration-200 group relative overflow-hidden"
               >
-                <div className="flex items-center gap-4">
-                  <span className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full 
-                                 bg-royal-gold/10 text-royal-red font-bold group-hover:bg-royal-red group-hover:text-royal-gold">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <span className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center rounded-full 
+                                 bg-royal-gold/10 text-royal-red font-bold text-xs sm:text-base group-hover:bg-royal-red group-hover:text-royal-gold">
                     {String.fromCharCode(65 + idx)}
                   </span>
                   <span className="flex-1 text-thai-charcoal group-hover:text-royal-red">
