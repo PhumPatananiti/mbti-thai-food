@@ -72,3 +72,4 @@ export default defineConfig([
 ])
 ```
 # mbti-thai-food
+# mbti-thai-food
