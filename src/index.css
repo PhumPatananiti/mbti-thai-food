@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Sarabun:wght@300;400;600&display=swap');
+@font-face {
+  font-family: 'Moh-Luang';
+  src: url('/fonts/Moh-Luang.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -7,12 +14,12 @@
   --color-royal-cream: #FDF5E6;
   --color-thai-charcoal: #333333;
   
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Sarabun", sans-serif;
+  --font-serif: "Moh-Luang", serif;
+  --font-sans: "Moh-Luang", sans-serif;
 }
 
 :root {
-  font-family: 'Sarabun', sans-serif;
+  font-family: 'Moh-Luang', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -34,7 +41,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Moh-Luang', serif;
 }
 
 .silk-bg {

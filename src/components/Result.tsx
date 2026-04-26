@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { foodMapping } from '../data/foodMapping';
-import { RefreshCcw, Share2, Heart, ShieldAlert, Sparkles, ChefHat } from 'lucide-react';
+import { RefreshCcw, Share2, Heart, ShieldAlert, Sparkles, ChefHat, Camera } from 'lucide-react';
+import { toPng } from 'html-to-image';
+import ShareCard from './ShareCard';
 
 interface ResultProps {
   scores: Record<string, { left: number; right: number }>;
@@ -64,6 +66,43 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
     }
   };
 
+  const handleInstagramShare = async () => {
+    const node = document.getElementById('share-card');
+    if (!node) return;
+
+    try {
+      // Ensure the node is visible for capture if needed, though html-to-image usually works on hidden nodes if they are in the DOM
+      const dataUrl = await toPng(node, {
+        cacheBust: true,
+        width: 1080,
+        height: 1920,
+      });
+
+      // Convert dataUrl to blob
+      const res = await fetch(dataUrl);
+      const blob = await res.blob();
+      const file = new File([blob], 'mbti-food-result.png', { type: 'image/png' });
+
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'คุณคืออาหารชาววังชนิดไหน?',
+          text: 'แชร์ผลลัพธ์ของคุณ!',
+        });
+      } else {
+        // Fallback: Download the image
+        const link = document.createElement('a');
+        link.download = 'mbti-food-result.png';
+        link.href = dataUrl;
+        link.click();
+        window.alert("ดาวน์โหลดรูปภาพผลลัพธ์แล้ว! คุณสามารถนำไปโพสต์ใน Instagram Story ได้ทันที");
+      }
+    } catch (err) {
+      console.error('Error generating image:', err);
+      window.alert("ไม่สามารถสร้างรูปภาพได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง");
+    }
+  };
+
   if (!result) return <div className="p-10 text-center font-sans">ขออภัย ไม่พบผลลัพธ์ที่ตรงกับรหัส {code}</div>;
 
   return (
@@ -72,6 +111,8 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
       animate={{ opacity: 1, scale: 1 }}
       className="w-full max-w-4xl px-2 sm:px-4 py-4 sm:py-8"
     >
+      <ShareCard result={result} code={code} />
+      
       <div className="silk-bg rounded-3xl shadow-2xl overflow-hidden thai-border">
         {/* Result Header */}
         <div className="relative h-48 sm:h-64 md:h-96 overflow-hidden">
@@ -160,20 +201,30 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
 
               <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
                 <button
-                  onClick={onReset}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-royal-red text-royal-gold 
-                             rounded-xl font-bold shadow-lg hover:bg-royal-red/90 transition-all font-sans text-sm sm:text-base"
+                  onClick={handleInstagramShare}
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-tr from-purple-600 to-pink-500 text-white 
+                             rounded-xl font-bold shadow-lg hover:opacity-90 transition-all font-sans text-sm sm:text-base"
                 >
-                  <RefreshCcw className="w-4 h-4 sm:w-5 sm:h-5" />
-                  ทำแบบทดสอบอีกครั้ง
+                  <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
+                  แชร์ลง Instagram Story
                 </button>
+                
                 <button
                   onClick={handleShare}
                   className="w-full flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border-2 border-royal-red 
                              text-royal-red rounded-xl font-bold hover:bg-royal-red/5 transition-all font-sans text-sm sm:text-base"
                 >
                   <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
-                  แชร์ผลลัพธ์
+                  แชร์ลิงก์ผลลัพธ์
+                </button>
+
+                <button
+                  onClick={onReset}
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-royal-red text-royal-gold 
+                             rounded-xl font-bold shadow-lg hover:bg-royal-red/90 transition-all font-sans text-sm sm:text-base"
+                >
+                  <RefreshCcw className="w-4 h-4 sm:w-5 sm:h-5" />
+                  ทำแบบทดสอบอีกครั้ง
                 </button>
               </div>
             </div>
