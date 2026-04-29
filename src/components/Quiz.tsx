@@ -97,7 +97,6 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
       </AnimatePresence>
     </div>
   );
-  );
 };
 
 export default Quiz;
