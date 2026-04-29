@@ -43,14 +43,14 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
   const progress = ((currentIndex + 1) / questions.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl px-2 sm:px-4 py-4 sm:py-8">
+    <div className="w-full max-w-4xl px-4 sm:px-6 py-6 sm:py-12">
       {/* Progress Bar */}
-      <div className="mb-6 sm:mb-8">
-        <div className="flex justify-between text-royal-red font-bold mb-2 font-sans text-sm sm:text-base">
+      <div className="mb-8 sm:mb-12">
+        <div className="flex justify-between text-royal-red font-bold mb-3 sm:mb-4 font-sans text-lg sm:text-2xl">
           <span>คำถามที่ {currentIndex + 1} จาก {questions.length}</span>
           <span>{Math.round(progress)}%</span>
         </div>
-        <div className="w-full h-2 sm:h-3 bg-gray-200 rounded-full overflow-hidden border border-royal-gold/30">
+        <div className="w-full h-3 sm:h-5 bg-gray-200 rounded-full overflow-hidden border-2 border-royal-gold/30">
           <motion.div 
             className="h-full bg-royal-red"
             initial={{ width: 0 }}
@@ -62,31 +62,31 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
+          exit={{ opacity: 0, x: -30 }}
           transition={{ duration: 0.3 }}
-          className="silk-bg p-5 sm:p-8 md:p-12 rounded-2xl shadow-xl thai-border"
+          className="silk-bg p-8 sm:p-12 md:p-16 rounded-[2.5rem] shadow-2xl thai-border"
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-thai-charcoal mb-6 sm:mb-8 leading-tight font-sans">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-thai-charcoal mb-10 sm:mb-14 leading-tight font-sans">
             {currentQuestion.text}
           </h2>
 
-          <div className="grid gap-2 sm:gap-3">
+          <div className="grid gap-4 sm:gap-6">
             {currentQuestion.options.map((option, idx) => (
               <button
                 key={idx}
                 onClick={() => handleAnswer(currentQuestion.dimension, option.value, idx)}
-                className="w-full p-3 sm:p-4 text-left text-base sm:text-lg font-sans border-2 border-royal-gold/20 
-                           rounded-xl hover:border-royal-red hover:bg-royal-red/5 active:bg-royal-red/10
+                className="w-full p-5 sm:p-8 text-left text-xl sm:text-2xl md:text-3xl font-sans border-[3px] border-royal-gold/20 
+                           rounded-3xl hover:border-royal-red hover:bg-royal-red/5 active:bg-royal-red/10
                            transition-all duration-200 group relative overflow-hidden"
               >
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <span className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center rounded-full 
-                                 bg-royal-gold/10 text-royal-red font-bold text-xs sm:text-base group-hover:bg-royal-red group-hover:text-royal-gold">
-                    {String.fromCharCode(65 + idx)}
+                <div className="flex items-center gap-5 sm:gap-8">
+                  <span className="w-10 h-10 sm:w-14 sm:h-14 flex-shrink-0 flex items-center justify-center rounded-full 
+                                 bg-royal-gold/10 text-royal-red font-bold text-lg sm:text-2xl group-hover:bg-royal-red group-hover:text-royal-gold transition-colors">
+                    {String.fromCharCode(64 + idx + 1)}
                   </span>
-                  <span className="flex-1 text-thai-charcoal group-hover:text-royal-red">
+                  <span className="flex-1 text-thai-charcoal group-hover:text-royal-red font-medium">
                     {option.text}
                   </span>
                 </div>
@@ -96,6 +96,7 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
         </motion.div>
       </AnimatePresence>
     </div>
+  );
   );
 };
 
