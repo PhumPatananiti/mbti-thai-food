@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { foodMapping } from '../data/foodMapping';
-import { RefreshCcw, Share2, Heart, ShieldAlert, Sparkles, ChefHat } from 'lucide-react';
+import { RefreshCcw, Share2, Heart, ShieldAlert, Sparkles, ChefHat, Image } from 'lucide-react';
+import { toPng } from 'html-to-image';
+import ShareCard from './ShareCard';
 
 interface ResultProps {
   scores: Record<string, { left: number; right: number }>;
@@ -64,6 +66,34 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
     }
   };
 
+  const handleDownloadImage = async () => {
+    const node = document.getElementById('share-card');
+    if (!node) return;
+
+    try {
+      // Add a small delay to ensure fonts and images are fully rendered
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      const dataUrl = await toPng(node, {
+        cacheBust: true,
+        width: 1080,
+        height: 1920,
+        backgroundColor: '#FDF5E6',
+        style: {
+          transform: 'none', // Reset transform for capture
+        }
+      });
+      
+      const link = document.createElement('a');
+      link.download = `mbti-food-${result?.name}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error('Error generating image:', err);
+      window.alert("ไม่สามารถสร้างรูปภาพได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง");
+    }
+  };
+
   if (!result) return <div className="p-10 text-center font-sans">ขออภัย ไม่พบผลลัพธ์ที่ตรงกับรหัส {code}</div>;
 
   return (
@@ -72,6 +102,8 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
       animate={{ opacity: 1, scale: 1 }}
       className="w-full max-w-6xl px-4 sm:px-6 py-8 sm:py-12"
     >
+      <ShareCard result={result} code={code} />
+      
       <div className="silk-bg rounded-[2.5rem] shadow-2xl overflow-hidden thai-border">
         {/* Result Header */}
         <div className="relative h-64 sm:h-96 md:h-[32rem] overflow-hidden">
@@ -159,6 +191,15 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
               </div>
 
               <div className="mt-10 sm:mt-12 space-y-4 sm:space-y-6">
+                <button
+                  onClick={handleDownloadImage}
+                  className="w-full flex items-center justify-center gap-3 px-8 py-5 sm:px-10 sm:py-6 bg-gradient-to-tr from-emerald-600 to-teal-500 text-white 
+                             rounded-2xl font-bold shadow-xl hover:opacity-90 transition-all font-sans text-lg sm:text-2xl"
+                >
+                  <Image className="w-6 h-6 sm:w-8 sm:h-8" />
+                  บันทึกเป็นรูปภาพ
+                </button>
+                
                 <button
                   onClick={handleShare}
                   className="w-full flex items-center justify-center gap-3 px-8 py-5 sm:px-10 sm:py-6 border-4 border-royal-red 
