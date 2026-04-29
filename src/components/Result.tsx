@@ -68,29 +68,64 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
 
   const handleDownloadImage = async () => {
     const node = document.getElementById('share-card');
-    if (!node) return;
+    if (!node) {
+      window.alert("ไม่พบส่วนประกอบสำหรับสร้างรูปภาพ");
+      return;
+    }
 
     try {
-      // Add a small delay to ensure fonts and images are fully rendered
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Show loading indicator or change button state if you had one
+      // window.alert("กำลังสร้างรูปภาพ กรุณารอครู่หนึ่ง...");
+
+      // Ensure all images are loaded
+      const images = node.getElementsByTagName('img');
+      await Promise.all(Array.from(images).map(img => {
+        if (img.complete) return Promise.resolve();
+        return new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      }));
+
+      // Slightly longer delay for fonts and complex styles
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       const dataUrl = await toPng(node, {
         cacheBust: true,
+        useCORS: true,
         width: 1080,
         height: 1920,
         backgroundColor: '#FDF5E6',
+        pixelRatio: 1,
+        skipAutoScale: true,
         style: {
-          transform: 'none', // Reset transform for capture
+          transform: 'none',
+          left: '0',
+          top: '0',
         }
       });
       
       const link = document.createElement('a');
-      link.download = `mbti-food-${result?.name}.png`;
+      link.download = `mbti-food-${result?.name || 'result'}.png`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
-      console.error('Error generating image:', err);
-      window.alert("ไม่สามารถสร้างรูปภาพได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง");
+      console.error('Detailed error generating image:', err);
+      // Fallback attempt with slightly different options if first one fails
+      try {
+        const dataUrl = await toPng(node, { 
+          backgroundColor: '#FDF5E6',
+          width: 1080,
+          height: 1920,
+        });
+        const link = document.createElement('a');
+        link.download = `mbti-food-result-alt.png`;
+        link.href = dataUrl;
+        link.click();
+      } catch (secondErr) {
+        console.error('Final error:', secondErr);
+        window.alert("ไม่สามารถสร้างรูปภาพได้เนื่องจากข้อจำกัดของเบราว์เซอร์ (CORS) หรือความเร็วอินเทอร์เน็ต กรุณาลองเปลี่ยนเบราว์เซอร์หรือลองใหม่อีกครั้ง");
+      }
     }
   };
 

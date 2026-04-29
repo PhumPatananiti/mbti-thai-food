@@ -22,7 +22,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "ช่วย “คลายร้อน/รีเฟรช” จากการกินเย็นและกลิ่นหอม",
     compatible: ["หมี่กรอบชาววัง", "ข้าวตังหน้าตั้ง", "แกงมัสมั่นชาววัง"],
     challenging: ["ยำทวาย", "น้ำพริกลงเรือ"],
-    image: "https://res.klook.com/image/upload/q_85/c_fill,w_750/v1679559583/blog/f4x1ta1iajfam18jfjiv.jpg"
+    image: "/food/khao-chae.jpg"
   },
   "CRNA": {
     name: "แกงมัสมั่นชาววัง",
@@ -34,7 +34,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "ช่วยตัดเลี่ยนให้รสไม่หนักเกิน และช่วยขับลม",
     compatible: ["ข้าวแช่", "หรุ่ม", "ข้าวตังหน้าตั้ง"],
     challenging: ["ยำทวาย", "ม้าห้อ"],
-    image: "https://files.gqthailand.com/uploads/curry1.jpg"
+    image: "/food/massaman.jpg"
   },
   "CREK": {
     name: "หมี่กรอบชาววัง",
@@ -46,7 +46,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "กลิ่น Citrus ช่วยตัดเลี่ยนและ “เปิดรส”",
     compatible: ["ข้าวแช่", "ล่าเตียง", "น้ำพริกลงเรือ"],
     challenging: ["แกงรัญจวน", "หรุ่ม"],
-    image: "https://naturalpalm.com/wp-content/uploads/2018/08/หมี่กรอบชาววัง-ของว่างโบราณชวนอร่อย-16082018.jpg"
+    image: "/food/mee-krob.jpg"
   },
   "CREA": {
     name: "ล่าเตียง",
@@ -58,7 +58,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "“สามเกลอ” ช่วยดับคาวและดึงกลิ่นเนื้อให้หอมละมุน",
     compatible: ["หมี่กรอบชาววัง", "ม้าห้อ", "ข้าวแช่"],
     challenging: ["แกงรัญจวน", "ข้าวตังหน้าตั้ง"],
-    image: "https://naturalpalm.com/wp-content/uploads/2020/03/ล่าเตียง.jpg"
+    image: "/food/la-tieng.jpg"
   },
   "CSNK": {
     name: "ข้าวตังหน้าตั้ง",
@@ -70,7 +70,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "สอนเรื่อง texture contrast ได้ชัด: กรอบ vs ครีม",
     compatible: ["ข้าวแช่", "แกงมัสมั่นชาววัง", "น้ำพริกลงเรือ"],
     challenging: ["ยำทวาย", "ม้าห้อ"],
-    image: "https://cdn.shopify.com/s/files/1/1498/3814/files/0a078f0be1f5d73d9c75c95efa571edb_large.jpg?v=1580372915"
+    image: "/food/khao-tang.jpg"
   },
   "CSNA": {
     name: "แกงรัญจวน",
@@ -82,7 +82,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "แปลงของเหลือ/ของค้างสำรับให้เป็นเมนูใหม่อย่างมีคุณค่า",
     compatible: ["หรุ่ม", "ข้าวแช่", "แกงมัสมั่นชาววัง"],
     challenging: ["ยำทวาย", "น้ำพริกลงเรือ"],
-    image: "https://www.pholfoodmafia.com/wp-content/uploads/2020/10/4Run-Juan-Curry.jpg"
+    image: "/food/run-juan.jpg"
   },
   "CSEK": {
     name: "น้ำพริกลงเรือ",
@@ -94,7 +94,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "ให้ผู้กิน “บาลานซ์เอง” ในหนึ่งสำรับ (เค็ม/หวาน/สด/เปรี้ยว)",
     compatible: ["หมี่กรอบชาววัง", "ข้าวตังหน้าตั้ง", "ยำทวาย"],
     challenging: ["ข้าวแช่", "หรุ่ม"],
-    image: "https://www.silpa-mag.com/wp-content/uploads/2025/10/น้ำพริกลงเรือ-1024x768.jpg"
+    image: "/food/nam-prik.jpg"
   },
   "CSEA": {
     name: "ยำทวาย",
@@ -106,7 +106,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "รสเปรี้ยวเผ็ดช่วย “เรียกน้ำย่อย/เจริญอาหาร”",
     compatible: ["น้ำพริกลงเรือ", "ม้าห้อ", "หมี่กรอบชาววัง"],
     challenging: ["ข้าวแช่", "แกงมัสมั่นชาววัง"],
-    image: "https://static.thairath.co.th/media/HCtHFA7ele6Q2dUK4wih6m6yRRzXPoMQTgUhiXQPLssi8fqmvEmpads2dMi0lXT4Ot.jpg"
+    image: "/food/yum-tawae.jpg"
   },
   "IRNK": {
     name: "หรุ่ม",
@@ -118,7 +118,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "สอนเรื่องมาตรฐานการผลิต: ชิ้นต้องใกล้เคียงกันทุกชิ้น",
     compatible: ["แกงมัสมั่นชาววัง", "ข้าวแช่", "แกงรัญจวน"],
     challenging: ["ยำทวาย", "ม้าห้อ"],
-    image: "https://image.makewebeasy.net/makeweb/m_1920x0/yLfaLTMBP/Dessert/หรุ่ม.jpg?v=202405291424"
+    image: "/food/rhoom.jpg"
   },
   "IRNA": {
     name: "ล่าเตียง",
@@ -130,7 +130,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "“สามเกลอ” ช่วยดับคาวและดึงกลิ่นเนื้อให้หอมละมุน",
     compatible: ["หมี่กรอบชาววัง", "ม้าห้อ", "ข้าวแช่"],
     challenging: ["แกงรัญจวน", "ข้าวตังหน้าตั้ง"],
-    image: "https://naturalpalm.com/wp-content/uploads/2020/03/ล่าเตียง.jpg"
+    image: "/food/la-tieng.jpg"
   },
   "IREK": {
     name: "หมี่กรอบชาววัง",
@@ -142,7 +142,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "กลิ่น Citrus ช่วยตัดเลี่ยนและ “เปิดรส”",
     compatible: ["ข้าวแช่", "ล่าเตียง", "น้ำพริกลงเรือ"],
     challenging: ["แกงรัญจวน", "หรุ่ม"],
-    image: "https://naturalpalm.com/wp-content/uploads/2018/08/หมี่กรอบชาววัง-ของว่างโบราณชวนอร่อย-16082018.jpg"
+    image: "/food/mee-krob.jpg"
   },
   "IREA": {
     name: "ยำทวาย",
@@ -154,7 +154,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "รสเปรี้ยวเผ็ดช่วย “เรียกน้ำย่อย/เจริญอาหาร”",
     compatible: ["น้ำพริกลงเรือ", "ม้าห้อ", "หมี่กรอบชาววัง"],
     challenging: ["ข้าวแช่", "แกงมัสมั่นชาววัง"],
-    image: "https://static.thairath.co.th/media/HCtHFA7ele6Q2dUK4wih6m6yRRzXPoMQTgUhiXQPLssi8fqmvEmpads2dMi0lXT4Ot.jpg"
+    image: "/food/yum-tawae.jpg"
   },
   "ISNK": {
     name: "ข้าวตังหน้าตั้ง",
@@ -166,7 +166,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "สอนเรื่อง texture contrast ได้ชัด: กรอบ vs ครีม",
     compatible: ["ข้าวแช่", "แกงมัสมั่นชาววัง", "น้ำพริกลงเรือ"],
     challenging: ["ยำทวาย", "ม้าห้อ"],
-    image: "https://cdn.shopify.com/s/files/1/1498/3814/files/0a078f0be1f5d73d9c75c95efa571edb_large.jpg?v=1580372915"
+    image: "/food/khao-tang.jpg"
   },
   "ISNA": {
     name: "แกงรัญจวน",
@@ -178,7 +178,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "แปลงของเหลือ/ของค้างสำรับให้เป็นเมนูใหม่อย่างมีคุณค่า",
     compatible: ["หรุ่ม", "ข้าวแช่", "แกงมัสมั่นชาววัง"],
     challenging: ["ยำทวาย", "น้ำพริกลงเรือ"],
-    image: "https://www.pholfoodmafia.com/wp-content/uploads/2020/10/4Run-Juan-Curry.jpg"
+    image: "/food/run-juan.jpg"
   },
   "ISEK": {
     name: "ม้าห้อ",
@@ -190,7 +190,7 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "เป็นตัวอย่าง “flavor pairing” ไทยโบราณ: หวาน-เค็ม-เปรี้ยวในคำเดียว",
     compatible: ["ล่าเตียง", "น้ำพริกลงเรือ", "หมี่กรอบชาววัง"],
     challenging: ["หรุ่ม", "ข้าวแช่"],
-    image: "https://cdn-cms.cpbrandsite.com/web/recipe/2is8k6e1z1yk64keeugmydgkfhey7msb2vcf27oa.jpg"
+    image: "/food/ma-hor.jpg"
   },
   "ISEA": {
     name: "น้ำพริกลงเรือ",
@@ -202,6 +202,6 @@ export const foodMapping: Record<string, FoodResult> = {
     purpose: "ให้ผู้กิน “บาลานซ์เอง” ในหนึ่งสำรับ (เค็ม/หวาน/สด/เปรี้ยว)",
     compatible: ["หมี่กรอบชาววัง", "ข้าวตังหน้าตั้ง", "ยำทวาย"],
     challenging: ["ข้าวแช่", "หรุ่ม"],
-    image: "https://www.silpa-mag.com/wp-content/uploads/2025/10/น้ำพริกลงเรือ-1024x768.jpg"
+    image: "/food/nam-prik.jpg"
   }
 };
