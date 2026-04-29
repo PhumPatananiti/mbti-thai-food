@@ -92,7 +92,6 @@ const Result: React.FC<ResultProps> = ({ scores, tieBreaker, onReset }) => {
 
       const dataUrl = await toPng(node, {
         cacheBust: true,
-        useCORS: true,
         width: 1080,
         height: 1920,
         backgroundColor: '#FDF5E6',
