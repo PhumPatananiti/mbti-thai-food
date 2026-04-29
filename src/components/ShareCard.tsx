@@ -55,7 +55,7 @@ const ShareCard: React.FC<ShareCardProps> = ({ result, code }) => {
       </div>
 
       {/* Personality */}
-      <div className="w-full bg-royal-gold/10 p-16 rounded-[70px] border-l-[25px] border-royal-gold mb-16">
+      <div className="w-full bg-royal-gold/10 p-16 rounded-[70px] border-l-[25px] border-royal-gold mb-12">
         <div className="flex items-center justify-center gap-6 mb-8 text-royal-red font-bold text-5xl">
           <Sparkles className="w-14 h-14" />
           <span>ลักษณะนิสัยเด่น (รหัส: {code})</span>
@@ -63,6 +63,30 @@ const ShareCard: React.FC<ShareCardProps> = ({ result, code }) => {
         <p className="text-7xl text-thai-charcoal font-bold leading-tight px-4">
           {result.personality}
         </p>
+      </div>
+
+      {/* Relationships */}
+      <div className="w-full grid grid-cols-2 gap-12 mb-12">
+        <div className="bg-green-50 p-10 rounded-[50px] border-4 border-green-200">
+          <h4 className="text-green-700 text-4xl font-bold mb-6">เข้ากันได้ดีกับ</h4>
+          <div className="flex flex-wrap justify-center gap-4">
+            {result.compatible.map((item, i) => (
+              <span key={i} className="px-6 py-3 bg-white text-green-700 rounded-2xl text-3xl font-bold border-2 border-green-100">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="bg-red-50 p-10 rounded-[50px] border-4 border-red-200">
+          <h4 className="text-red-700 text-4xl font-bold mb-6">คู่กัดกับ</h4>
+          <div className="flex flex-wrap justify-center gap-4">
+            {result.challenging.map((item, i) => (
+              <span key={i} className="px-6 py-3 bg-white text-red-700 rounded-2xl text-3xl font-bold border-2 border-red-100">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
